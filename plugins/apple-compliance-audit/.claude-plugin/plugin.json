@@ -1,0 +1,10 @@
+{
+  "name": "apple-compliance-audit",
+  "version": "1.0.0",
+  "description": "Audit any iOS app against Apple's App Review Guidelines, the Developer Program License Agreement, privacy manifests and subscription rules, then fix the issues you pick.",
+  "author": { "name": "Tilak Shakya", "url": "https://shakyatilak.com" },
+  "homepage": "https://github.com/Tilak1028-st/apple-compliance-audit-skill",
+  "repository": "https://github.com/Tilak1028-st/apple-compliance-audit-skill",
+  "license": "MIT",
+  "keywords": ["ios", "app-store", "app-review", "apple", "compliance", "privacy", "swiftui"]
+}

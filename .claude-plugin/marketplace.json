@@ -1,0 +1,12 @@
+{
+  "name": "apple-compliance-audit",
+  "description": "Apple App Review compliance audit skill for Claude Code",
+  "owner": { "name": "Tilak Shakya", "url": "https://shakyatilak.com" },
+  "plugins": [
+    {
+      "name": "apple-compliance-audit",
+      "source": "./plugins/apple-compliance-audit",
+      "description": "Audit any iOS app against Apple's App Review Guidelines, DPLA, privacy manifests and subscription rules, then fix what you pick."
+    }
+  ]
+}
