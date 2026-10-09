@@ -5,8 +5,12 @@
 - **The description limit is 4,000 characters, and App Store Connect counts more than Python's `len()`.** Newlines and `•` cost extra (a 3,951-char draft showed as -45 over). Leave about 100 characters of headroom, and offer specific cuts when the user is over.
 - **There are two app-info records** while a new version is in preparation. Age rating, name, subtitle and privacy URL edits land on the draft record and go live with that version. Read both.
 - **The App Privacy label publishes immediately** when the user clicks Publish, not with the next version. That's fine as long as it matches the live version.
-- **Age rating:** a medical app needs Medical/Treatment Information = Frequent and Health or Wellness Topics = Yes. A disclaimer does not make the content go away. The rating number usually doesn't change if it's already 16+/17+.
+- **Age rating:** a medical app needs Medical/Treatment Information = Frequent and Health or Wellness Topics = Yes. A disclaimer does not make the content go away. The tiers are now 4+, 9+, 13+, 16+ and 18+ (17+ no longer exists). The rating number usually doesn't change if it's already 16+ or 18+.
 - **Wording:** "Your data now stays private" implies it wasn't private before. Use neutral phrasing ("iCloud sync has been turned off. Your data stays on this iPhone.").
+
+## Secrets
+- RevenueCat `appl_` keys, Firebase `GoogleService-Info.plist` and Supabase anon keys are public by design. Don't flag them as leaks; check the backend rules (Firebase rules, Supabase RLS) instead.
+- A secret key that was ever committed is compromised even after deleting it from the code. The fix is to rotate the key and move the call behind a server or proxy, not just to remove the line.
 
 ## Links in chat
 - Put each URL on its own line, with nothing after it. The user's terminal glued "…agreement/. It covers…" onto the link and the page 404'd.

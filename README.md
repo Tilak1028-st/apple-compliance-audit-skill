@@ -10,13 +10,18 @@ Works with SwiftUI, UIKit, React Native, Flutter and Expo apps.
 
 - **App Review Guidelines**: safety, performance, business, design and legal (sections 1 to 5)
 - **Third-party AI consent** (5.1.2(i), added Nov 2025): personal data sent to OpenAI, Gemini, Claude and others
+- **Upload requirements**: Xcode 26 / iOS 26 SDK, minimum iOS version, the new age rating questions, EU trader status
+- **Data security** (1.6): hardcoded API keys, insecure network settings, tokens outside the Keychain
 - **Apple Developer Program License Agreement**: §3.3.3 and Schedule 2
 - **Privacy**: privacy manifests, required-reason APIs, the App Privacy label, purpose strings, account deletion
 - **Privacy policy vs reality**: compares every claim in your live policy with your real data flows
 - **Subscriptions and paywalls**: renewal terms, restore, manipulative copy, duplicate groups
 - **Health and medical apps**: disclaimers, accuracy claims, health data in iCloud or analytics
 - **Metadata**: name, subtitle, description claims, age rating, review notes
-- **4.3 spam risk**: near-identical apps on the same account
+- **4.3 and 4.2.6 spam risk**: near-identical or template apps on the same account
+- **Review readiness**: demo accounts, IAPs submitted, screenshots, iPad layout, IPv6
+- **HIG basics**: Dark Mode, Dynamic Type, accessibility labels
+- **Niche rules when they apply**: VPN, crypto, gambling, kids, extensions, ads and more
 
 Every finding cites the guideline number plus the exact `file:line` or metadata field.
 
@@ -45,8 +50,9 @@ In Claude Code, run:
 ### Option 2: as a plain skill
 
 ```bash
-git clone --depth 1 https://github.com/Tilak1028-st/apple-compliance-audit-skill.git /tmp/aca
-cp -R /tmp/aca/plugins/apple-compliance-audit/skills/apple-compliance-audit ~/.claude/skills/
+tmp=$(mktemp -d)
+git clone --depth 1 https://github.com/Tilak1028-st/apple-compliance-audit-skill.git "$tmp"
+cp -R "$tmp/plugins/apple-compliance-audit/skills/apple-compliance-audit" ~/.claude/skills/
 ```
 
 ## Requirements
@@ -83,6 +89,18 @@ plugins/apple-compliance-audit/skills/apple-compliance-audit/
 ```
 
 The fix recipes and gotchas come from real fixes shipped in a live App Store app.
+
+## Security
+
+- The skill is plain markdown. It has no scripts, hooks or MCP servers, so installing it runs nothing on your machine.
+- The audit is read-only. Code, App Store Connect and website changes happen only after you approve each one.
+- It treats code, web pages and command output as data, so text hidden in a file or page can't give it instructions.
+- It never opens your `.p8` keys and masks any secret it finds in the report.
+- `APPLE_AUDIT.md` lists your app's weak spots. Keep it out of public repos.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
 
 ## Contributing
 

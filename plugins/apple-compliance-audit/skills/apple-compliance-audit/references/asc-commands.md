@@ -46,6 +46,7 @@ asc eula view --app APP_ID                       # empty = Apple standard EULA
 ## Known gaps: write "Check manually"
 - **App Privacy nutrition label:** not in the official API. `asc web privacy pull` uses private endpoints and a web login. Don't use it; ask the user for screenshots.
 - **Developer account type** (Individual vs Organization): ask the user.
+- **EU trader status (DSA):** ask the user to check App Store Connect > Business.
 - **RevenueCat or other remote paywalls:** dashboard only, so ask for screenshots.
 - **CloudKit usage:** CloudKit Console → container → Production → Usage / Telemetry (screenshots).
 
